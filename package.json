@@ -574,6 +574,40 @@
                                             "default": [
                                                 "${workspaceFolder}"
                                             ]
+                                        },
+                                        "packageTask": {
+                                            "type": "string",
+                                            "description": "Task to run in tasks.json instead of roku-deploy to produce the component library .zip file that will be uploaded to the Roku.",
+                                            "default": ""
+                                        },
+                                        "packagePath": {
+                                            "type": "string",
+                                            "description": "Path to the component library .zip that will be uploaded to the Roku",
+                                            "default": ""
+                                        },
+                                        "packageUploadOverrides": {
+                                            "type": "object",
+                                            "description": "Overrides for values used during the roku-deploy zip upload process, like the route and various form data. You probably don't need to change these...",
+                                            "default": {
+                                                "route": "plugin_install",
+                                                "formData": {}
+                                            },
+                                            "required": [],
+                                            "properties": {
+                                                "route": {
+                                                    "type": "string",
+                                                    "description": "The route to use for uploading to the Roku device. Defaults to 'plugin_install'",
+                                                    "default": "plugin_install"
+                                                },
+                                                "formData": {
+                                                    "type": "object",
+                                                    "description": "A dictionary of form fields to be included in the package upload request. Set a value to null to delete from the form",
+                                                    "additionalProperties": true,
+                                                    "default": {
+                                                        "someformfield": "someFormValue"
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
