@@ -591,7 +591,7 @@ export class BrightScriptCommands {
      * @returns The password for the active device, or falls back to global password
      */
     public async getActiveHostPassword(): Promise<string | undefined> {
-        const activeHost = await this.context.workspaceState.get<string>('remoteHost');
+        const activeHost = this.context.workspaceState.get<string>('remoteHost');
         if (activeHost && typeof activeHost === 'string') {
             const devicePassword = await this.getDevicePassword(activeHost);
             if (devicePassword) {
